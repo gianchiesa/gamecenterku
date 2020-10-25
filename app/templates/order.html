@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}GAMECENTERKU - ORDER{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col s4 m4 l4">
+                <div class="card" style="margin-top: 20px;">
+                    <div class="card-image">
+                      <img src="{{ url_for('static', filename=detail['image']) }}">
+                    </div>
+                    <div class="card-action font-bebas">
+                      <p><a href="#"style="color: #6ac021; font-size: 25px;">{{detail['game_name']}}</a></p>
+                      <p><a href="#"style="color: black; font-size: 20px;">{{detail['dev']}}</a></p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col s8 m8 l8">
+              <div class="card" style="margin-top: 20px; border-radius: 20px;">
+                <div class="card-content font-bebas">
+                  <p href="#"style="color: black; font-size: 20px;"><span class="circle" style="background-color: #6ac021; color: white; margin-right: 5px;">1.</span>Masukan Id Pengguna</p>
+                  <div class="row">
+                    <form action="{{ url_for('payment') }}" method="POST" enctype="multipart/form-data">
+                      <div class="row">
+                      <div class="input-field col s5 font-poppins">
+                          <input id="username" name="user_id" type="text" class="validate" required>
+                          <label for=" USER ID"></label>
+                      </div>
+                      <div class="col s7">
+                        <a class="btn" style="background-color: #6ac021; color: white; margin-top: 17px;">?</a>
+                      </div>
+                    </div>
+                    <p style="color: grey; font-size: 12px;">Untuk mengetahui Id game anda, silahkan login kedalam game atau ke website game untuk mengecek id anda</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="margin-top: 20px; border-radius: 20px;">
+                <div class="card-content font-bebas">
+                  <p href="#"style="color: black; font-size: 20px;"><span class="circle" style="background-color: #6ac021; color: white; margin-right: 5px;">2.</span>Pilih Denominasi</p>
+                  <div class="row">
+                      <div class="row">
+                        <div class="col s12" style="margin-top: 20px;">
+                          <input type="hidden" name="items" value="{{detail['item']}}">
+                          {% for items in detail['item'] %}
+                            {% set uang, item, idx = items.split(',') %}
+                          <!-- <input class="for-checkbox-budget" type="hidden" name="items"  value="{{ uang }}" checked> -->
+                          <input class="checkbox-budget" type="radio" name="budget" id="budget-{{ idx }}" value="{{ item }}" checked>
+                          <label class="for-checkbox-budget" for="budget-{{ idx }}">
+                            <span>{{ item }}</span>
+                          </label>
+                          {% endfor %}
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="margin-top: 20px; border-radius: 20px;">
+                <div class="card-content font-bebas">
+                  <p href="#"style="color: black; font-size: 20px;"><span class="circle" style="background-color: #6ac021; color: white; margin-right: 5px;">3.</span>Pilih Pembayaran</p>
+                  <div class="row">
+                      <div class="row">
+                      <div class="input-field col s5 font-poppins" style="margin-top: 20px;">
+                        <p>
+                          <label for="method1">
+                            <input class="with-gap" name="payment_method" type="radio" value="dana" id="method1"/>
+                            <span ><img class="responsive-img" src="{{ url_for('static', filename='img/dana.png') }}" alt=""></span>
+                          </label>
+                        </p>
+                        <p>
+                          <label for="method2">
+                            <input class="with-gap" name="payment_method" type="radio" value="gopay" id="method2"/>
+                            <span><img class="responsive-img" src="{{ url_for('static', filename='img/gopay.png') }}" alt=""></span>
+                          </label>
+                        </p>
+                        <p>
+                          <label for="method3">
+                            <input class="with-gap" name="payment_method" type="radio" value="ovo" id="method3"/>
+                            <span><img class="responsive-img" src="{{ url_for('static', filename='img/ovo.png') }}" alt=""></span>
+                          </label>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12 m12 l12 center">
+              <button type="submit" class="btn font-bebas waves-effect" style="background-color: #6ac021; height: 40px; width: 200px; font-size: 20px;">Proses Pembayaran</button>
+            </div>
+          </div>
+            </form>
+            </div>
+            </div>
+    </div>
+{%endblock%}
+
+{% block js %}
+{% endblock %}

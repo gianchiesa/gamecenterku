@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% block title %}Bangun Karya - Project Detail{% endblock %}
+{% block content %}
+<div class="row grey lighten-4" style="padding: 25px;">
+    <div class="container">
+        <h3 class="font-poppins" style="text-align: center; font-weight: bold;">{{detail['title']}}</h3>
+        <h6 style="text-align: center;">
+        </h6>
+    </div>
+</div>
+<div class="container">
+    <div class="row" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 30px;">
+            {% if success is defined %}
+            <span class="alert-new" style="margin-left:15px;">{{ success }}</span>
+            {% endif %}
+            <div class="col s12 m12 l8" style="margin-top: 15px;">
+                <img src="{{ url_for('static', filename= detail['image']) }}"
+                    style="max-width: 600px; border-radius: 20px;">
+            </div>
+            <div class="col s12 m12 l4">
+                <div class="progress">
+                    <div class="determinate" style="width: 70%; background-color: orange;"></div>
+                </div>
+                <ul>
+                    <li><span class="font-poppins" id=""
+                            style="color: orange; font-size: 23px;">{{detail['amount_collected']}}</span>
+                    </li>
+                    <li><span class="font-lato" id="">Terkumpul dari Target Rp.{{detail['target_amount']}}</span></li>
+                </ul>
+                <ul>
+                    <li><span class="font-poppins" id="" style=" font-size: 23px;">13.212 Orang</span></li>
+                    <li><span class="font-lato" id="">Mendukung Proyek ini</span></li>
+                </ul>
+                <ul>
+                    <li><span class="font-poppins" id="" style="font-size: 23px;">{{detail['period']}}</span></li>
+                    <li><span class="font-lato" id="">Waktu Tersisa</span></li>
+                </ul>
+                <div style="text-align: center;"><a href="{{ url_for('showReward', project_id=detail['_id']) }}" class="btn font-poppins orange darken-1"
+                        style="width: 300px;">Dukung Proyek Ini</a></div>
+                <ul>
+                    <li>
+                        <div style="text-align: left;"><a href="" class="btn font-poppins white"
+                                style="width: 150px; color: #000;">Ingatkan saya</a>
+                            <img src="{{ url_for('static', filename='img/fb.png') }}"
+                                style="max-width: 40px; border-radius: 10px;">
+                            <img src="{{ url_for('static', filename='img/download.png') }}"
+                                style="max-width: 40px; border-radius: 10px;">
+                            <img src="{{ url_for('static', filename='img/ig.png') }}"
+                                style="max-width: 40px; border-radius: 10px;"></div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <p>Terkumpul atau tidak. Proyek akan tetap di jalankan pada tanggal 6 Agustus 2020</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s1 m1 l1">
+                <div class="chip">
+                    {{detail['category']}}
+                </div>
+            </div>
+            <div class="col s1 m1 l1">
+                <div class="chip">
+                    {{detail['daerah']}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row container">
+    <div class="col s6 m6 l6">
+        <ul class="tabs">
+            <li class="tab col s3"><a class="active" href="#test1">Deskripsi</a></li>
+            <li class="tab col s3"><a href="#test2">FAQ</a></li>
+            <li class="tab col s3"><a href="#test3">Komentar</a></li>
+            <li class="tab col s3"><a href="#test4">Komunitas</a></li>
+        </ul>
+    </div>
+    <div class="col s3 m3 l3">
+        <div style="text-align: center;"><a href="{{ url_for('showReward', project_id=detail['_id']) }}" class="btn font-poppins orange darken-1"
+                style="width: 230px;">Dukung Proyek Ini</a></div>
+    </div>
+    <div class="col s3 m3 l3">
+        <div style="text-align: center;"><a href="" class="btn font-poppins white"
+                style="width: 300px; color: #000;">Ingatkan Saya</a></div>
+    </div>
+    <div class="row container">
+        <div id="test1" class="col s12">
+            <h3 class="font-poppins" style="font-weight: bold;">Story</h3>
+            <img src="{{ url_for('static', filename=detail['image']) }}" alt=""
+                style="max-width: 500px; border-radius: 40px;">
+            <p class="font-lato">{{detail['description']}}
+            </p>
+            <p class="font-lato"></p>
+            <p></p>
+        </div>
+        <div id="test2" class="col s12">
+            <p class="font-poppins" style="margin-top: 30px;font-size: smaller;">PERTANYAAN MENGENAI PROJECT</p>
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header font-poppins">Bagaimana saya berjanji?</div>
+                    <div class="collapsible-body font-lato" style="background-color: white;"><span>Masukkan jumlah janji
+                            Anda dan pilih hadiah. Pada halaman berikutnya kami akan meminta Anda untuk masuk atau
+                            mendaftar dengan BangunKarya, dan kemudian memasukkan informasi pembayaran Anda untuk
+                            menyelesaikan proses checkout.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header font-poppins">Kapan kartu saya dibebankan?</div>
+                    <div class="collapsible-body font-lato" style="background-color: white;"><span>Jika proyek ini
+                            berhasil didanai, kartu Anda akan ditagih pada Rabu, 17 Juni 2020 20:00 UTC +07: 00, bersama
+                            dengan semua pendukung lain dari proyek ini.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header font-poppins">Jadi saya hanya ditagih jika dana berhasil?</div>
+                    <div class="collapsible-body font-lato" style="background-color: white;"><span>Iya! Itulah bagian
+                            yang membuat Kickstarter istimewa. Jika suatu proyek tidak berhasil didanai, tidak ada yang
+                            membayar apa pun.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header font-poppins">Apa yang bisa dilihat orang lain tentang janji saya?
+                    </div>
+                    <div class="collapsible-body font-lato" style="background-color: white;"><span>Proyek akan
+                            ditambahkan ke daftar dukungan di halaman profil Anda, tetapi jumlah yang Anda janjikan, dan
+                            hadiah yang Anda pilih, tidak akan dipublikasikan.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header font-poppins">Bagaimana jika saya ingin mengubah janji saya?</div>
+                    <div class="collapsible-body font-lato"><span>Anda dapat mengubah atau membatalkan janji Anda kapan
+                            saja sebelum Rabu, 17 Juni 2020 8:00 UTC +07: 00.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header font-poppins">Jika proyek ini didanai, bagaimana cara saya
+                        mendapatkan hadiah?</div>
+                    <div class="collapsible-body font-lato"><span>Ketika hadiah Anda sudah siap, Katoman akan
+                            mengirimkan Anda survei melalui email untuk meminta informasi yang diperlukan untuk
+                            memberikan hadiah Anda (alamat surat, ukuran T-shirt, dll).</span></div>
+                </li>
+            </ul>
+        </div>
+        <div id="test3" class="col s12" style="margin-top: 20px;">
+            <p class="font-poppins"><img src="{{ url_for('static', filename='img/default.png') }}" alt=""
+                    style="max-width: 40px;">: Anonim</p>
+            <p>Di kota kami, seseorang bisa melakukan kejahatan dan melarikan diri, dan mengatakan bahwa tidak ada yang
+                melihatnya. Tapi sekarang, siang atau malam, kita akan dapat melihatnya secara real time dan ia akan
+                membayar dendanya,</p>
+            <p class="font-poppins"><img src="{{ url_for('static', filename='img/default.png') }}" alt=""
+                    style="max-width: 40px;">: Anonim</p>
+            <p>Di kota kami, seseorang bisa melakukan kejahatan dan melarikan diri, dan mengatakan bahwa tidak ada yang
+                melihatnya. Tapi sekarang, siang atau malam, kita akan dapat melihatnya secara real time dan ia akan
+                membayar dendanya,</p>
+            <p class="font-poppins"><img src="{{ url_for('static', filename='img/default.png') }}" alt=""
+                    style="max-width: 40px;">: Anonim</p>
+            <p>Di kota kami, seseorang bisa melakukan kejahatan dan melarikan diri, dan mengatakan bahwa tidak ada yang
+                melihatnya. Tapi sekarang, siang atau malam, kita akan dapat melihatnya secara real time dan ia akan
+                membayar dendanya,</p>
+        </div>
+        <div id="test4" class="col s12">
+            <h4 class="center-align">13.212 Orang Mendukung Proyek ini</h4>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+{% block js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.tabs');
+        var instances = M.Tabs.init(elems, {});
+        var elems2 = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems2, {});
+    });
+</script>
+{% endblock %}

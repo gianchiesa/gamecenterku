@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}GAMECENTERKU - PAYMENT{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="card col s12 m12 l6  offset-l3" style="margin-top: 20px;">
+      <div class="card-content font-bebas">
+        <p href="#"style="color: black; font-size: 20px;"><span class="circle" style="background-color: #6ac021; color: white; margin-right: 5px;">1.</span>Masukan Id Pengguna</p>
+        <div class="row">
+          <form action="{{ url_for('viewStatus') }}" method="POST" enctype="multipart/form-data">
+            <div class="row">
+            <div class="input-field col s8 font-poppins">
+                <input id="username" name="user_id" type="text" class="validate" required >
+                <label for="username"></label>
+            </div>
+            <div class="col s4">
+              <button class="btn" type="submit" style="background-color: #6ac021; color: white; margin-top: 17px;">cari</button>
+            </div>
+          </div>
+          <p style="color: grey; font-size: 12px;">Masukan Id dari game anda untuk mengecek status pemesanan</p>
+        </div>
+      </div>
+    </div>
+    </form>
+    </div>
+    </div>
+</div>
+{%endblock%}
+
+{% block js %}
+{% endblock %}
