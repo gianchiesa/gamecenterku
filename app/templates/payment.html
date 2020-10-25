@@ -8,11 +8,17 @@
                 <div class="card-content">
                     <form action="{{ url_for('status') }}" method="post" enctype="multipart/form-data">
                         <div class="col s12 grey lighten-1">
-                          <p class="font-poppins" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Check Out Menggunakan <span" class="right" style="color: #77ff00; font-size: 40px;" alt="">{{payment_method}}</span></p>
+                          {% if payment_method == 'Dana' %}
+                          <p class="font-poppins" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Check Out Menggunakan <img class="right" src="{{ url_for('static', filename='img/dana.png') }}" alt=""></p>
+                          {% elif payment_method == 'OVO' %}
+                          <p class="font-poppins" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Check Out Menggunakan <img class="right" src="{{ url_for('static', filename='img/ovo.png') }}" alt=""></p>
+                          {% else %}
+                          <p class="font-poppins" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Check Out Menggunakan <img class="right" src="{{ url_for('static', filename='img/gopay.png') }}" alt=""></p>
+                          {% endif %}
                         </div>
                         <div class="col s12 grey lighten-4" style="margin-top: 15px;">
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Transfer ke</p>
-                          <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">08112313121</p>
+                          <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">081383439250</p>
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Item</p>
                           <input hidden id="items" type="text" name="items" value="{{ item }}">
                           <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{item}}</p>
@@ -36,7 +42,7 @@
                             <label for="telepon"></label>
                         </div>
                       </div>
-                    <div style="text-align: center; margin-top: 10px;"><button class="btn font-poppins col s12 m12 l12" style="background-color: #6ac021;" type="submit">Konfirmasi</button></div>
+                    <div style="text-align: center; margin-top: 10px;"><button class="btn font-poppins col s12 m12 l12" style="background-color: #6ac021;" type="submit">lanjutkan pembayaran</button></div>
                     <div class="col s12 center" style="margin-top: 10px;">
                     <a href="#" style="color: blue;">Kembali</a>
                   </div>

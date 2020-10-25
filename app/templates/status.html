@@ -7,18 +7,34 @@
             <div class="card" style="margin-top: 20px;">
                 <div class="card-content">
                         <div class="col s12 grey lighten-1">
-                          <p class="font-poppins" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Check Out Menggunakan <img class="right" src="{{ url_for('static', filename='img/gopay.png') }}" style="max-width: 130px;" alt=""></p>
+                            {% if payment_method == 'Dana' %}
+                            <p class="font-poppins" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Check Out Menggunakan <img class="right" src="{{ url_for('static', filename='img/dana.png') }}" alt=""></p>
+                            {% elif payment_method == 'OVO' %}
+                            <p class="font-poppins" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Check Out Menggunakan <img class="right" src="{{ url_for('static', filename='img/ovo.png') }}" alt=""></p>
+                            {% else %}
+                            <p class="font-poppins" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Check Out Menggunakan <img class="right" src="{{ url_for('static', filename='img/gopay.png') }}" alt=""></p>
+                            {% endif %}
                         </div>
                         <div class="col s12 grey lighten-4" style="margin-top: 15px;">
+                            <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Transfer ke</p>
+                            <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">081383439250</p>
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Item</p>
                           <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{item}}</p>
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Id Pengguna</p>
                           <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{user_id}}</p>
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Harga</p>
                           <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{harga}}</p>
+                          {% if payment_method == 'Dana' %}
+                          <p class="font-poppins center-align" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;"> <img class="center-align" src="{{ url_for('static', filename='img/qrdana.jpg') }}" style="max-width: 300px;" alt=""></p>
+                          {% elif payment_method == 'OVO' %}
+                          <p class="font-poppins center-align" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;"> <img class="center-align" src="{{ url_for('static', filename='img/qrovo.jpg') }}" style="max-width: 300px;" alt=""></p>
+                          {% else %}
+                          <p class="font-poppins center-align" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;"> <img class="center-align" src="{{ url_for('static', filename='img/qrgopay.jpg') }}" style="max-width: 300px;" alt=""></p>
+                          {% endif %}   
                           <div class="divider"></div>
                           <p class="font-poppins grey lighten-4" style="color:grey; margin-bottom: 15px; font-weight: bold; text-align: right;">Jumlah Total <span style="color: #6ac021; margin-bottom: 15px; font-weight: bold; text-align: right;">{{harga}}</span></p>
                         </div>
+                        
                         <div class="row">
                             <p class="font-poppins center-align" style="color: cornflowerblue; font-weight: bold;">{{status}}</p>
                       </div>
