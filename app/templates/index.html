@@ -2,12 +2,20 @@
 {% block title %}GAMECENTERKU - HOME{% endblock %}
 {% block content %}
 <div class="container"  style="margin-top: 50px;">
-  <djiv class="row">
+  <div class="row">
 <div class="slider">
   <ul class="slides">
     <li>
+      <img class="responsive-img" src="{{ url_for('static', filename='img/slidepubg.jpg') }}">
+    </li>
+    <li>
+      <img class="responsive-img" src="{{ url_for('static', filename='img/slidev.jpg') }}">
+    </li>
+    <li>
+      <img class="responsive-img" src="{{ url_for('static', filename='img/slideml.jpg') }}">
+    </li>
+    <li>
       <img class="responsive-img" src="{{ url_for('static', filename='img/slider.jpg') }}">
-      </div>
     </li>
   </ul>
 </div>
@@ -122,9 +130,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 var elems = document.querySelectorAll('.slider');
-var instances = M.Slider.init(elems, {
-  indicators: false,
-});
+var instances = M.Slider.init(elems, {});
 
 var elems1 = document.querySelectorAll('.tooltipped');
 var instances = M.Tooltip.init(elems1, {});
