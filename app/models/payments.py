@@ -3,7 +3,7 @@ from bson.objectid import ObjectId
 
 class Payments:
     def __init__(self, id=None):
-        client = pymongo.MongoClient("mongodb://localhost:27017/")
+        client = pymongo.MongoClient("mongodb+srv://gian:gian123@cluster0.87opw.mongodb.net/test")
         db = client["gamecenterku"]
         self.col_payments = db["payments"]
         if id:

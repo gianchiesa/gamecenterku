@@ -2,7 +2,7 @@ import pymongo
 
 class Migrate:
     def __init__(self):
-        client = pymongo.MongoClient("mongodb://localhost:27017/")
+        client = pymongo.MongoClient("mongodb+srv://gian:gian123@cluster0.87opw.mongodb.net/test")
         db = client["gamecenterku"]
         col_games = db["games"]
         dict_games = [
