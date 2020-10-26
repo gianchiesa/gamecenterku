@@ -46,6 +46,13 @@ def confirmPayment(payments_id):
 	view = payment.getData()
 	return redirect(url_for('showAdmin'))
 
+@app.route('/Admin1/<payments_id>/Manage/delete', methods = ['GET','POST'])
+def deletePayment(payments_id):
+	payment = Payments(payments_id)
+	payment.deletePayments()
+	view = payment.getData()
+	return redirect(url_for('showAdmin'))
+
 @app.route('/order/payment/status', methods = ['GET','POST'])
 def status():
 	item = request.form.get('items')
@@ -57,7 +64,7 @@ def status():
 	payment_method = request.form.get('payment_method')
 	email = ''
 	telepon = request.form.get('telepon')
-	status = 'Pesanan Sedang Diproses'
+	status = 'belum dibayar'
 	payment = Payments()
 	hasil = payment.addPayments(games_id, user_id, harga, payment_method, email, telepon, item, status)
 	return render_template('status.html',harga = harga, user_id=user_id, item=item, games_id=games_id, email=email, telepon=telepon, payment_method=payment_method, status=status)
