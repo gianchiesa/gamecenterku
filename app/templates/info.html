@@ -15,7 +15,7 @@
                         <table>
                             <thead>
                               <tr>
-                                  <th>user_id</th>
+                                  <th>kode Pembayaran</th>
                                   <th>Item</th>
                                   <th>Harga</th>
                                   <th>Pembayaran</th>
@@ -27,7 +27,7 @@
                             <tbody>
                                 {% for info in listpay %}
                                 <tr>
-                                  <td>{{info['user_id']}}</td>
+                                  <td>{{info['email']}}</td>
                                   <td>{{info['item']}}</td>
                                   <td>{{info['harga']}}</td>
                                   <td>{{info['payment_method']}}</td>

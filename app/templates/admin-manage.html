@@ -11,20 +11,22 @@
                           <p class="font-poppins" style="color: black; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Check Out Menggunakan <span" class="right" style="color: #77ff00; font-size: 40px;" alt="">{{view['payment_method']}}</span></p>
                         </div>
                         <div class="col s12 grey lighten-4" style="margin-top: 15px;">
-                          <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Transfer ke</p>
-                          <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">08112313121</p>
+                          <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Kode Pembayaran</p>
+                          <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{view['email']}}</p>
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Item</p>
-                          <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{view['item']}}</p>
+                          <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{view['item']}} {{view['games_id']}}</p>
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Id Pengguna</p>
                           <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{view['user_id']}}</p>
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Harga</p>
                           <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{view['harga']}}</p>
+                          <img src="{{ url_for('static', filename=view['img']) }}" style="max-width: 300px; text-align: center;" alt="">
                           <div class="divider"></div>
                           <p class="font-poppins grey lighten-4" style="color:grey; margin-bottom: 15px; font-weight: bold; text-align: right;">Jumlah Total <span style="color: #6ac021; margin-bottom: 15px; font-weight: bold; text-align: right;">{{view['harga']}}</span></p>
                         </div>
                         <div class="row">
                       </div>
                     <div style="text-align: center; margin-top: 10px;"><a class="btn font-poppins col s12 m12 l12" style="background-color: #6ac021;" href="/Admin1/{{view['_id']}}/Manage/confirm" >Konfirmasi</a></div>
+                    <div style="text-align: center; margin-top: 10px;"><a class="btn font-poppins col s12 m12 l12" style="background-color: #6ac021;" href="/Admin1/{{view['_id']}}/Manage/failed" >Tolak</a></div>
                     <div style="text-align: center; margin-top: 10px;"><a class="btn font-poppins col s12 m12 l12" style="background-color: #6ac021;" href="/Admin1/{{view['_id']}}/Manage/delete" >hapus</a></div>
                     <div class="col s12 center" style="margin-top: 10px;">
                     <a href="{{ url_for('showAdmin') }}" style="color: blue;">Kembali</a>

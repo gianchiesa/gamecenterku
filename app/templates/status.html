@@ -18,6 +18,8 @@
                         <div class="col s12 grey lighten-4" style="margin-top: 15px;">
                             <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Transfer ke</p>
                             <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">081383439250</p>
+                            <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Kode Pembayaran</p>
+                            <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{email}}</p>
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Item</p>
                           <p class="font-poppins grey lighten-4" style="color:black; margin-bottom: 15px; font-weight: bold;">{{item}}</p>
                           <p class="font-poppins grey lighten-4" style="color: grey; font-weight: bold;">Id Pengguna</p>
@@ -34,10 +36,22 @@
                           <div class="divider"></div>
                           <p class="font-poppins grey lighten-4" style="color:grey; margin-bottom: 15px; font-weight: bold; text-align: right;">Jumlah Total <span style="color: #6ac021; margin-bottom: 15px; font-weight: bold; text-align: right;">{{harga}}</span></p>
                         </div>
-                        
+                        <form action="{{ url_for('uploadPayment',payments_id=payments_id) }}" method="POST" enctype="multipart/form-data">
                         <div class="row">
-                            <p class="font-poppins center-align" style="color: cornflowerblue; font-weight: bold;">{{status}}</p>
-                      </div>
+                            <div class="file-field input-field col s12 font-poppins">
+                                <div class="btn green lighten-1">
+                                  <span>Upload Bukti</span>
+                                  <input id="image" name="image" type="file" required>
+                                </div>
+                                <div class="file-path-wrapper">
+                                  <input class="file-path validate font-poppins" name="image-name" type="text" placeholder="Upload Bukti">
+                                </div>
+                              </div>
+                              <div class="col s4">
+                                <button class="btn" type="submit" style="background-color: #6ac021; color: white; margin-top: 17px;">BAYAR</button>
+                              </div>
+                            </div>
+                        </form>
                   </div>
                         <p><br> <br>
                         </p>

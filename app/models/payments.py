@@ -56,8 +56,8 @@ class Payments:
         get = self.col_payments.find_one({"_id":self.id}, {"email" : 1})
         if get == None:
             return None
-        return get['Comment']
-    
+        return get['email']
+
     def setEmail(self, email):
         new = { "$set": { "email": email } }
         return self.col_payments.update_one({"_id":self.id}, new)
@@ -81,7 +81,17 @@ class Payments:
     def setStatus(self, status):
         new = { "$set": { "status": status } }
         return self.col_payments.update_one({"_id":self.id}, new)
+
+    def getImg(self):
+        get = self.col_payments.find_one({"_id":self.id}, {"img" : 1})
+        if get == None:
+            return None
+        return get['img']
     
+    def setImg(self, img):
+        new = { "$set": { "img": img } }
+        return self.col_payments.update_one({"_id":self.id}, new)
+
     def showAllPayments(self):
         arr = []
         for x in self.col_payments.find():

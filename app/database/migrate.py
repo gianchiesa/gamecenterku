@@ -16,7 +16,7 @@ class Migrate:
         col_games.insert_many(dict_games)
         col_payments = db["payments"]
         dict_payments = [
-            {"payments_id":"121", "games_id": "qwe", "user_id":"103", "harga":"3000", "payment_method":"OVO", "telepon": "08138247124", "item": "10 diamonds", "email" : "chiesamghz@gmail.com", "status" : "sukses"}
+            {"payments_id":"121", "games_id": "qwe", "user_id":"103", "harga":"3000", "payment_method":"OVO", "telepon": "08138247124", "item": "10 diamonds", "email" : "1000", "status" : "sukses", "img" : "uploads/qwe"}
         ]
         col_payments.insert_many(dict_payments)
 
